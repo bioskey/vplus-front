@@ -1,0 +1,94 @@
+<div class="px-4">
+    <span class="fs-4">Programming</span>
+    <app-time></app-time>
+</div>
+
+<div class="pt-4">
+    <form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="w-100 m-auto px-4">
+        <div class="d-flex justify-content-between mb-3">
+            <div class="w-31">
+                <label for="name" class="form-label">Bus <span class="text-danger">*</span></label>
+                <select formControlName="name" class="form-select" id="name" autocomplete="off">
+                    <option value=""></option>
+                    <option value="1246">1246</option>
+                </select>
+            </div>
+            <div class="w-31">
+                <label for="places" class="form-label">Places <span class="text-danger">*</span></label>
+                <input type="text" readonly formControlName="places" class="form-control text-uppercase" id="places"
+                    autocomplete="off">
+            </div>
+            <div class="w-31">
+                <label for="price" class="form-label">Price <span class="text-danger">*</span></label>
+                <input type="text" readonly formControlName="price" class="form-control text-uppercase" id="price"
+                    autocomplete="off">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mb-3">
+            <div class="w-48">
+                <label for="departure" class="form-label">Departure <span class="text-danger">*</span></label>
+                <select formControlName="departure" class="form-select" id="departure" autocomplete="off">
+                    <option value=""></option>
+                    <option value="DO">Douala</option>
+                    <option value="YA">Yaoundé</option>
+                    <option value="BE">Bertoua</option>
+                    <option value="EB">Ebolowa</option>
+                </select>
+            </div>
+            <div class="w-48">
+                <label for="arrival" class="form-label">Arrival <span class="text-danger">*</span></label>
+                <select formControlName="arrival" class="form-select" id="arrival" autocomplete="off">
+                    <option value=""></option>
+                    <option value="BA">Baffoussam</option>
+                    <option value="YA">Yaoundé</option>
+                    <option value="MA">Maroua</option>
+                    <option value="GA">Garoua</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mb-3">
+            <div class="w-48">
+                <label for="frequency" class="form-label">Frequency <span class="text-danger">*</span></label>
+                <select #frequency formControlName="frequency" class="form-select" id="frequency" autocomplete="off">
+                    <option value="CHOOSE">Choose day(s)</option>
+                    <option value="ALL">Every day</option>
+                </select>
+            </div>
+            <div class="w-48">
+                <label for="hour" class="form-label">Hour <span class="text-danger">*</span></label>
+                <input type="time" formControlName="hour" class="form-control" id="hour" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between mb-3">
+            <div class="w-48">
+                <label for="arrival" class="form-label">Days <span class="text-danger">*</span></label><br>
+                <ng-container *ngFor="let checkbox of checkboxes; let i = index" formArrayName="days">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" [formControlName]="i" type="checkbox" id="checkbox-{{i}}"
+                            value="{{checkbox.value}}">
+                        <label class="form-check-label" for="checkbox-{{i}}">{{checkbox.name}}</label>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="w-48">
+                <label for="duration" class="form-label">Duration <span class="text-danger">*</span></label>
+                <select formControlName="duration" class="form-select" id="duration" autocomplete="off">
+                    <option value=""></option>
+                    <option value="1 mois">1 mois</option>
+                    <option value="3 mois">3 mois</option>
+                    <option value="6 mois">6 mois</option>
+                    <option value="9 mois">9 mois</option>
+                    <option value="12 mois">12 mois</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-end">
+            <button type="reset" class="btn btn-outline-secondary me-4">Cancel</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Submit</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+.dropdown-menu {
+    min-height: 100px;
+    background-color: #f5f6f7;
+}
+
+.traveler {
+    cursor: pointer;
+}
+
+.traveler:hover {
+    background-color: var(--bs-gray-200);
+}
+
+.placeholder{
+    height: 40px;
+}
+
+.search-container {
+    border-radius: 5px;
+
+    input {
+        border: 0;
+    }
+
+    input:focus {
+        box-shadow: none;
+    }
+}

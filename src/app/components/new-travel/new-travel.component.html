@@ -1,0 +1,116 @@
+<div class="px-4">
+    <span class="fs-4">Add a new travel</span>
+    <app-time></app-time>
+</div>
+
+<form *ngIf="formGroup" [formGroup]="formGroup" (ngSubmit)="onSubmit()" class="pt-4 px-4">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="w-48">
+            <label for="firstname" class="form-label">Firstname <span class="text-danger">*</span></label>
+            <input type="text" formControlName="firstname" class="form-control text-capitalize" id="firstname"
+                autocomplete="given-name">
+        </div>
+        <div class="w-48">
+            <label for="lastname" class="form-label">Lastname <span class="text-danger">*</span></label>
+            <input type="text" formControlName="lastname" class="form-control text-uppercase" id="lastname"
+                autocomplete="family-name">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mb-3">
+        <div class="w-31">
+            <label for="gender" class="form-label">Gender <span class="text-danger">*</span></label>
+            <select formControlName="gender" class="form-select" id="gender" autocomplete="sex">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+        <div class="w-31">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" formControlName="email" class="form-control text-lowercase" id="email"
+                autocomplete="email">
+        </div>
+        <div class="w-31">
+            <label for="phone" class="form-label">Phone number</label>
+            <input type="tel" formControlName="phonenumber" class="form-control" id="phone" autocomplete="tel">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mb-3">
+        <div class="w-48">
+            <label for="typeId" class="form-label">Type ID</label>
+            <select formControlName="typeId" class="form-select" id="typeId" autocomplete="off">
+                <option></option>
+                <option value="ID">ID card</option>
+                <option value="Passport">Passport</option>
+            </select>
+        </div>
+        <div class="w-48">
+            <label for="numberId" class="form-label">Number ID</label>
+            <input formControlName="numberId" type="text" class="form-control text-uppercase" id="numberId"
+                autocomplete="off">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mb-3">
+        <div class="w-48">
+            <label for="departure" class="form-label">Departure <span class="text-danger">*</span></label>
+            <select formControlName="departure"
+                [ngClass]="{'is-invalid' : departure.touched && departure.errors?.['required']}" class="form-select"
+                id="departure" autocomplete="off">
+                <option></option>
+                <option value="DO">Douala</option>
+                <option value="YA">Yaoundé</option>
+                <option value="BE">Bertoua</option>
+                <option value="EB">Ebolowa</option>
+            </select>
+        </div>
+        <div class="w-48">
+            <label for="arrival" class="form-label">Arrival <span class="text-danger">*</span></label>
+            <select formControlName="arrival" class="form-select" id="arrival" autocomplete="off">
+                <option></option>
+                <option value="BA">Baffoussam</option>
+                <option value="YA">Yaoundé</option>
+                <option value="MA">Maroua</option>
+                <option value="GA">Garoua</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mb-3">
+        <div class="w-48">
+            <label for="dateTravel" class="form-label">Date <span class="text-danger">*</span></label>
+            <input type="date" formControlName="date" class="form-control" id="dateTravel" autocomplete="off">
+        </div>
+        <div class="w-48">
+            <label for="hour" class="form-label">Hour <span class="text-danger">*</span></label>
+            <input type="time" formControlName="hour" class="form-control" id="hour" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-between mb-4">
+        <div class="w-31">
+            <label for="bus" class="form-label">Bus <span class="text-danger">*</span></label>
+            <select formControlName="bus" class="form-select" id="bus" autocomplete="off">
+                <option></option>
+                <option value="105">Bus n°105</option>
+                <option value="106">Bus n°106</option>
+                <option value="107">Bus n°107</option>
+                <option value="108">Bus n°108</option>
+            </select>
+        </div>
+        <div class="w-31">
+            <label for="places" class="form-label">Places <span class="text-danger">*</span></label>
+            <input readonly type="number" formControlName="places" class="form-control" id="places" autocomplete="off">
+        </div>
+        <div class="w-31">
+            <label for="amount" class="form-label">Amount <span class="text-danger">*</span></label>
+            <input type="number" formControlName="amount" class="form-control" id="amount" autocomplete="off">
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-end">
+        <button type="reset" class="btn btn-outline-secondary me-4">Cancel</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Submit</button>
+    </div>
+</form>

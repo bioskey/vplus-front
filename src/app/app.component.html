@@ -1,0 +1,86 @@
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>
+
+<nav class="navbar navbar-expand-lg bg-primary shadow-sm sticky-top">
+  <div class="container-xxl">
+    <div class="d-flex align-items-center">
+      <img src="../assets/images/bus-icon.png" width="32" class="me-2">
+      <a class="navbar-brand text-white fw-bold">{{title}}</a>
+    </div>
+    <app-search-traveler class="col-3"></app-search-traveler>
+    <div class="d-flex align-items-center">
+      <ul class="navbar-nav me-2">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" id="navbarDropdownLanguage" role="button" placement="left"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="../assets/images/en.png" width="20" class="me-1 img-lang">
+          </a>
+          <ul style="min-width: 120px;" class="dropdown-menu dropdown-menu-end p-2"
+            aria-labelledby="navbarDropdownLanguage">
+            <li>
+              <a class="dropdown-item active">En <i class="bi bi-check"></i></a>
+            </li>
+            <li><a class="dropdown-item">Fr</a></li>
+          </ul>
+        </li>
+      </ul>
+      <span class="me-3 text-white">Brice BETTY</span>
+      <button class="btn btn-outline-light logout fs-09" type="submit">Log out</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container-xxl d-flex">
+  <aside class="col-3">
+    <ul class="nav menu-ul flex-column bg-white p-4 fs-09">
+      <li class="nav-item mb-1">
+        <a class="nav-link text-gray" [routerLink]="['new-travel']" routerLinkActive="active">
+          <span><i class="bi bi-plus-square-fill me-2 logo-menu"></i>New travel</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+      <li class="nav-item mb-1">
+        <a class="nav-link" [routerLink]="['travels']" routerLinkActive="active">
+          <span><i class="bi bi-clipboard-fill me-2 logo-menu"></i>Recorded travels</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+      <li class="nav-item mb-1">
+        <a class="nav-link" [routerLink]="['list-of-bus']" routerLinkActive="active">
+          <span><i class="bi bi-inboxes-fill me-2 logo-menu"></i>List of bus</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+      <li class="nav-item mb-1">
+        <a class="nav-link" [routerLink]="['programming']" routerLinkActive="active">
+          <span><i class="bi bi-calendar3-event-fill me-2 logo-menu"></i>Programming</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+      <li class="nav-item mb-1">
+        <a class="nav-link" [routerLink]="['bus-tracking']" routerLinkActive="active">
+          <span><i class="bi bi-map-fill me-2 logo-menu"></i>Bus tracking</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['dashboard']" routerLinkActive="active">
+          <span><i class="bi bi-grid-1x2-fill me-2 logo-menu"></i>Dashboard</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      </li>
+    </ul>
+  </aside>
+
+  <main class="col-9 ps-4">
+    <div class="bg-white h-100 p-3 router-container">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>
+
+<footer class="bg-secondary p-1 sticky-bottom">
+  <div class="container-xxl text-white d-flex">
+    <span>&commat;vbus enterprises all rights reserved.</span>
+    <span>Version 1.0.0 </span>
+  </div>
+</footer>

@@ -1,0 +1,31 @@
+.card-bus {
+    border: 1px solid var(--bs-border-color-translucent);
+    border-radius: 6px;
+}
+
+.future {
+    border-left: 6px solid var(--bs-success);
+}
+
+.ongoing {
+    animation: blinking 1s infinite;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.track {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@keyframes blinking {
+    0% {
+        border-left: 6px solid rgb(255, 246, 246);
+    }
+
+    100% {
+        border-left: 6px solid var(--bs-danger);
+    }
+}

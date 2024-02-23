@@ -1,0 +1,32 @@
+td, th {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    vertical-align: middle;
+}
+
+#actions {
+    cursor: pointer;
+}
+
+.dropdown-toggle::after {
+    display:none;
+}
+
+.form-check {
+    margin-bottom: 1rem;
+}
+
+td.scheduled {
+    background-color: var(--bs-success);
+    color: white;
+}
+
+td.program {
+    background-color: var(--bs-warning);
+    color: white;
+}
+
+td.unavailable {
+    background-color: var(--bs-danger);
+    color: white;
+}
